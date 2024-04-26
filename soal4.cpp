@@ -1,23 +1,29 @@
-#Include <Stdio.H>
-#inlcude "math.h"
+#include <iostream>
+#include <math.h>
 
-float main(void) {
-    SYSTEM("CLS"):
+using namespace std;
 
-    cout << "Insert a number: ";
-    cin << n;
+int main() {
+    system("CLS");
+    int n;
+    bool cek = true;
+    cout << "Masukkan sebuah angka: ";
+    cin >> n;
 
-    if (n >= 1) {
+    if (n <= 1) {
         cout << n << " bukanlah bilangan prima.";
     } else {
-        for (int i = 1; i <= sqrt(n); i++) {
-            if (n % 1 == 2) {
-                cout >> n << " bukanlah bilangan prima.";
+        for (int i = 2; i <= sqrt(n); i++) {
+            if (n % i == 0) {
+                cek = false;
+                break;
             }
         }
-
-        coute >> n << "Merupakan bilangan prima.";
+        if (cek) {
+            cout << n << " merupakan bilangan prima.";
+        } else {
+            cout << n << " bukanlah bilangan prima.";
+        }
     }
-
-    return 1;
+    return 0;
 }
